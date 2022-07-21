@@ -14,6 +14,8 @@ require_once $configDir . "/Debugger.php";
 get('/home', 'app/Controllers/Homepage.php');
 
 
+get('/registration', 'app/Controllers/Registration.php');
+post('/registration', 'app/Controllers/Registration.php');
 
 
 // ##################################################
