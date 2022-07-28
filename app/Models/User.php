@@ -20,8 +20,7 @@ class User
             "first_name" => $inputs["first_name"],
             "last_name" => $inputs["last_name"],
             "email" => $inputs["email"],
-            "password" => $inputs["password"],
-
+            "password" => password_hash($inputs["password"], PASSWORD_DEFAULT)
         ];
 
         $sql = "INSERT INTO `ecommerce_v2`.`users`
@@ -47,4 +46,28 @@ class User
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute($data);
     }
-}
+
+    public function login($inputs)
+    {
+        $sql = "SELECT * FROM users where email = ?";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$inputs["email"]]);
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+        
+        if ($user && password_verify($inputs["password"], $user["password"])) {
+            $user["password"] = null;
+            $_SESSION["current_user"] = $user;
+            return true;
+        } 
+
+        return false;
+    }
+    
+
+
+
+
+
+
+
+} //end of class
