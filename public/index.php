@@ -26,10 +26,12 @@ get('/logout', 'app/Controllers/Logout.php');
 post('/logout', 'app/Controllers/Logout.php');
 
 
-
-
 get('/admin/products/add', 'app/Controllers/admin/Adminproduct.php');
 post('/admin/products/add', 'app/Controllers/admin/Adminproduct.php');
+
+
+get('/store', 'app/Controllers/Store.php');
+post('/store', 'app/Controllers/Store.php');
 
 
 // ##################################################
