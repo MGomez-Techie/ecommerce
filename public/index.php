@@ -26,13 +26,20 @@ get('/logout', 'app/Controllers/Logout.php');
 post('/logout', 'app/Controllers/Logout.php');
 
 
+get('/store', 'app/Controllers/Store.php');
+post('/store', 'app/Controllers/Store.php');
+
+// FEATURE: Admin functionality
 get('/admin/products/add', 'app/Controllers/admin/Adminproduct.php');
 post('/admin/products/add', 'app/Controllers/admin/Adminproduct.php');
 
 
-get('/store', 'app/Controllers/Store.php');
-post('/store', 'app/Controllers/Store.php');
+get('/admin/products/edit/$id', 'app/Controllers/admin/Adminproduct.php');
+post('/admin/products/edit/$id', 'app/Controllers/admin/Adminproduct.php');
 
+
+get('/admin/products/view', 'app/Controllers/admin/Adminviewproduct.php');
+post('/admin/products/view', 'app/Controllers/admin/Adminviewproduct.php');
 
 // ##################################################
 // ##################################################

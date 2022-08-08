@@ -15,8 +15,19 @@ $product_object = new Adminproduct($db_object);
 $url = (empty($id)) ? "admin/products/add" : "admin/products/edit/$id";
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-    if(isset($_POST["add_product"])){
+    if(isset($_POST["add_product"]) && empty($id)){
         $product_object->addProduct($_POST);  
+    }
+    if(isset($_POST["add_product"]) && !empty($id)){
+        $product_object->updateProduct($id, $_POST);  
+    }
+}
+
+
+if(!empty($id)){
+    $product_details = $product_object->getProductDetails($id);
+    foreach ($product_details as $data ) {
+        # code...
     }
 }
 

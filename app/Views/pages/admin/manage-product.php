@@ -17,7 +17,7 @@
 
                     <div class="form-group">
                         <label for="product_description">Price Description:</label>
-                        <input type="text" class="form-control" id="product_description" name="product_description" value="<?php echo $product_description; ?>">
+                        <textarea class="form-control" rows="5" id="product_description" name="product_description"><?php echo $product_description; ?></textarea>
                     </div>
 
                     <div class="form-group">
