@@ -5,6 +5,8 @@ require_once APP_DIR . "Config/Database.php";
 require_once APP_DIR . "Models/User.php";
 require_once APP_DIR . "Models/Product.php";
 require_once APP_DIR . "Models/admin/Adminproduct.php";
+require_once APP_DIR . "Utils/Customimage.php";
+require_once APP_DIR . "Utils/Uploadfile.php";
 
 
 // create objects
@@ -15,11 +17,44 @@ $product_object = new Adminproduct($db_object);
 $url = (empty($id)) ? "admin/products/add" : "admin/products/edit/$id";
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-    if(isset($_POST["add_product"]) && empty($id)){
-        $product_object->addProduct($_POST);  
+    if(isset($_POST["add_product"]) && !empty($id)){ 
+        $images = [
+            new Customimage("product_image1", 1),
+            new Customimage("product_image2", 0),
+            new Customimage("product_image3", 0),
+            new Customimage("product_image4", 0)
+    ];
+        if(startValidations($images)){
+            
+            if (startUpload($images)){
+                $product_object->addProduct($images, $_POST);
+            }else{
+                echo "Error trying to upload file";
+            }
+
+        }else{
+            echo "Error trying to validate files";
+        }  
     }
-    if(isset($_POST["add_product"]) && !empty($id)){
-        $product_object->updateProduct($id, $_POST);  
+
+    if(isset($_POST["add_product"]) && !empty($id)){ 
+        $images = [
+            new Customimage("product_image1", 0, $_POST["previous_product_image1"]),
+            new Customimage("product_image2", 0, $_POST["previous_product_image2"]),
+            new Customimage("product_image3", 0, $_POST["previous_product_image3"]),
+            new Customimage("product_image4", 0, $_POST["previous_product_image4"])
+    ];
+        if(startValidations($images)){
+            
+            if (startUpload($images)){
+                $product_object->updateProduct($id, $images, $_POST);
+            }else{
+                echo "Error trying to upload file";
+            }
+
+        }else{
+            echo "Error trying to validate files";
+        }  
     }
 }
 
