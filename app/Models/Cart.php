@@ -80,4 +80,14 @@ class Cart
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([$cart_quantity, $user_id, $product_id]);
     }
+
+    public function getSubtotal(){
+        return $this->subtotal;
+    }
+    public function getTotal(){
+        return $this->total;
+    }
+    public function calculateTotal(){
+        $this->total = $this->subtotal;
+    }
 }

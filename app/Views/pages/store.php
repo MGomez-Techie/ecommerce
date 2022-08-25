@@ -204,8 +204,6 @@
               </a>
               <ul class="social">
                   <li><a href="#" data-tip="Add to Wishlist"><i class="fa fa-heart"></i></a></li>
-                  <li><a href="#" data-tip="Compare"><i class="fas fa-random"></i></a></li>
-                  <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
               </ul>
               <a class="add-to-cart" href="#" data-tip="Add to cart">ADD TO CART</a>
           </div>

@@ -37,6 +37,10 @@ post('/details/$id', 'app/Controllers/Details.php');
 get('/cart', 'app/Controllers/Cart.php');
 post('/cart', 'app/Controllers/Cart.php');
 
+
+get('/checkout', 'app/Controllers/Checkout.php');
+post('/checkout', 'app/Controllers/Checkout.php');
+
 // FEATURE: Admin functionality
 get('/admin/products/add', 'app/Controllers/admin/Adminproduct.php');
 post('/admin/products/add', 'app/Controllers/admin/Adminproduct.php');

@@ -18,14 +18,17 @@
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link" href="<?php echo BASE_URL . "store"; ?>">Store</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link" href="<?php echo BASE_URL . "cart"; ?>">Cart</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>    
+        <a class="nav-link" href="<?php echo BASE_URL . "login"; ?>">Login</a>
+      </li>   
+      <li class="nav-item">
+        <a class="nav-link" href="<?php echo BASE_URL . "registration"; ?>">Register</a>
+      </li>   
     </ul>
   </div>  
 </nav>
