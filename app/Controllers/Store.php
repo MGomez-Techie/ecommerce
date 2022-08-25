@@ -6,10 +6,12 @@ require_once APP_DIR . "Models/User.php";
 require_once APP_DIR . "Models/Product.php";
 
 
+
 // create objects
 $db_object = new Database();
 $user_object = new User($db_object);
 $product_object = new Product($db_object);
+
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

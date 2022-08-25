@@ -100,59 +100,7 @@
 .product-grid .social li a:hover:after{
     display: block;
 }
-.product-grid .add-to-cart{
-    color: #fff;
-    background-color: #fc5c65;
-    font-size: 18px;
-    font-weight: 700;
-    text-align: center;
-    width: 75%;
-    padding: 10px 0;
-    margin: 0 auto;
-    border-radius: 4px;
-    opacity: 0;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    z-index: 1;
-    transition: 0.5s ease 0s;
-}
-.product-grid:hover .add-to-cart{ opacity: 1; }
-.product-grid .add-to-cart:hover{
-    color: #fff;
-    background: #eb3b5a;
-}
-.product-grid .add-to-cart:before,
-.product-grid .add-to-cart:after{
-    content: attr(data-tip);
-    color: #fff;
-    background-color: #282828;
-    font-size: 12px;
-    font-weight: 400;
-    text-transform: capitalize;
-    line-height: 22px;
-    padding: 5px 10px;
-    white-space: nowrap;
-    display: none;
-    transform: translateX(-50%);
-    position: absolute;
-    left: 50%;
-    top: -43px;
-}
-.product-grid .add-to-cart:after{
-    content: '';
-    height: 15px;
-    width: 15px;
-    padding: 0;
-    transform: translateX(-50%) rotate(45deg);
-    top: -23px;
-    z-index: -1;
-}
-.product-grid .add-to-cart:hover:before,
-.product-grid .add-to-cart:hover:after{
-    display: block;
-}
+
 .product-grid .product-content{
     text-align: center;
     padding: 15px;
@@ -205,7 +153,6 @@
               <ul class="social">
                   <li><a href="#" data-tip="Add to Wishlist"><i class="fa fa-heart"></i></a></li>
               </ul>
-              <a class="add-to-cart" href="#" data-tip="Add to cart">ADD TO CART</a>
           </div>
             <div class="product-content">
               <div class="price">$<?php echo $data["product_price"];?></div>
