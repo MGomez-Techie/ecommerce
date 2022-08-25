@@ -55,7 +55,12 @@ post('/admin/products/view', 'app/Controllers/admin/Adminviewproduct.php');
 
 
 get('/admin/dashboard', 'app/Controllers/admin/Admindashboard.php');
-post('/admin/dashboard', 'app/Controllers/admin/Admindashboard7.php');
+post('/admin/dashboard', 'app/Controllers/admin/Admindashboard.php');
+
+
+//TEMPLATES
+get('/templates', 'app/Controllers/Templates.php');
+post('/templates', 'app/Controllers/Templates.php');
 
 
 // ##################################################

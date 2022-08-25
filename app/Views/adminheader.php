@@ -20,7 +20,7 @@
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
-                    <a class = "theme" href="<?php echo BASE_URL . "store"; ?>">
+                    <a class = "theme" href="<?php echo BASE_URL . "templates"; ?>">
                         Return to Store
                     </a>
                 </li>

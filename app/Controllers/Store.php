@@ -19,7 +19,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-$product_details = $product_object->getAllProducts();
+if ($_SERVER["REQUEST_METHOD"] == "GET"){
+    if(!empty($_GET)){
+        $product_details = $product_object->filterProducts($_GET);
+    }else{
+        $product_details = $product_object->getAllProducts();
+    }
+
+}
+
+
+
 
 
 // load views

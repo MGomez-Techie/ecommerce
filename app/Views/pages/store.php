@@ -55,7 +55,7 @@
 .product-grid:hover .social{ opacity: 1; }
 .product-grid .social li a{
     color: #fff;
-    background: #fc5c65;
+    background: #5c6ac4;
     font-size: 15px;
     text-align: center;
     line-height: 35px;
@@ -70,7 +70,7 @@
 }
 .product-grid .social li a:hover{
     color: #fff;
-    background: #eb3b5a;
+    background: #8e9bed;
 }
 .product-grid .social li a:before,
 .product-grid .social li a:after{
@@ -106,13 +106,13 @@
     padding: 15px;
 }
 .product-grid .price{
-    color: #fc5c65;
+    color: #5c6ac4;
     font-size: 18px;
     font-weight: 500;
     margin-bottom: 15px;
 }
 .product-grid .price span{
-    color: #929292;
+    color: #5c6ac4;
     font-size: 16px;
     text-decoration: line-through;
     margin-right: 7px;
@@ -137,6 +137,7 @@
 </style>
 
 <div class="container">
+    <?php require_once APP_DIR . "Views/includes/store-filter.php"; ?>
     <div class="row">
 
 <?php foreach ($product_details as $data): 
