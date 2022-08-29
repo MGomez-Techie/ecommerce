@@ -58,6 +58,12 @@ get('/admin/dashboard', 'app/Controllers/admin/Admindashboard.php');
 post('/admin/dashboard', 'app/Controllers/admin/Admindashboard.php');
 
 
+get('/admin/discounts', 'app/Controllers/admin/Admindiscounts.php');
+post('/admin/discounts', 'app/Controllers/admin/Admindiscounts.php');
+
+
+
+
 //TEMPLATES
 get('/templates', 'app/Controllers/Templates.php');
 post('/templates', 'app/Controllers/Templates.php');

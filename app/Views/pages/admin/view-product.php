@@ -3,7 +3,7 @@
         <div class="row">
 
         <div class="col-md-12">
-<h1>View Products</h1>
+        <h1>View Products</h1>
             <table class="table">
                 <thead>
                     <tr>

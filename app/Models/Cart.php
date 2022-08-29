@@ -20,8 +20,9 @@ class Cart
 
     public function getCartDetails($user_id){
         $sql = "SELECT * 
-        FROM cart, products 
+        FROM cart, products, discounts
         WHERE cart.product_id = products.product_id 
+        AND products.product_id = discounts.discount_id
         AND cart.user_id = ? 
         AND cart.cart_status = 'cart'";
         $stmt = $this->pdo->prepare($sql);
@@ -29,7 +30,10 @@ class Cart
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         
         foreach ($result as $data) {
-            $this->subtotal += $data["product_price"] * $data["cart_quantity"];
+            $this->subtotal += Customhelper::calculateDiscountAmount(
+                $data["product_price"],
+                $data["discount_percent"]
+            ) * $data["cart_quantity"];
         }
         $this->cart_details = $result;
         
