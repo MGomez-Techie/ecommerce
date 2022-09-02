@@ -180,13 +180,14 @@ body {
 			
 		<?php if(isset($_SESSION["current_user"]["user_id"])): ?>
 
-			<a href="<?php echo BASE_URL . "logout"; ?>" class="nav-item nav-link active">LOGOUT</a>
+			<a href="<?php echo BASE_URL . "logout"; ?>" class="nav-item nav-link active">LogOut</a>
 			<a href="<?php echo BASE_URL . "wishlist"; ?>" class="nav-item nav-link ">Wishlist</a>
-
+			<a href="<?php echo BASE_URL . "checkout"; ?>" class="nav-item nav-link ">Checkout</a>
+			<a href="<?php echo BASE_URL . "orderdetails"; ?>" class="nav-item nav-link ">Orders</a>
+			
 		<?php else: ?>
 
 			<a href="<?php echo BASE_URL . "login"; ?>" class="nav-item nav-link active">Login</a>
-			
 			<a href="<?php echo BASE_URL . "registration"; ?>" class="nav-item nav-link">Register</a>
 
 		<?php endif; ?>

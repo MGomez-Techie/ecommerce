@@ -149,9 +149,11 @@
     }
 </style>
 
-<div class="container store-banner mb-5 p-5">
-    <h1>We have the latest iPhones at affordable prices</h1>
-    <p>Get the latest Apple iPhones in one convient place</p>
+<div class="container my-3">
+    <div class="container store-banner mb-5 p-5">
+        <h1>We have the latest Phones at affordable prices</h1>
+        <p>Get the latest Phones in one convient place</p>
+    </div>
 </div>
 
 <div class="container">
@@ -168,10 +170,7 @@
               <a href="<?php echo $link;?>" class="image">
                 <img class="pic-1" src="<?php echo BASE_URL . $data["product_image1"];?>">
                 <img class="pic-2" src="<?php echo BASE_URL . $data["product_image2"];?>">
-              </a>
-              <ul class="social">
-                  <li><a href="#" data-tip="Add to Wishlist"><i class="fa fa-heart"></i></a></li>
-              </ul>
+              </a>   
           </div>
             <div class="product-content">
               <div class="price">$<?php echo $data["product_price"];?></div>

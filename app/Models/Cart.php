@@ -147,6 +147,34 @@ class Cart
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute($data);
     }
+    
+    public function addToWishlist1($user_id, $product_id, $wishlist_quantity = 1){
+        $data = [
+            "user_id" => $user_id,
+            "product_id" => $product_id,
+            "wishlist_quantity" => $wishlist_quantity,
+        ];
+
+        $sql = "INSERT INTO `wishlist`
+        (`wishlist_id`,
+        `user_id`,
+        `product_id`,
+        `wishlist_created`,
+        `wishlist_quantity`)
+        VALUES
+        (
+        NULL,
+        :user_id,
+        :product_id,
+        current_timestamp(),
+        :wishlist_quantity
+        );
+        
+        ";
+
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute($data);
+    }
 
     public function removeFromWishlist($wishlist_id, $user_id){
         $sql = "DELETE FROM wishlist WHERE wishlist_id = ? AND user_id = ?";

@@ -21,6 +21,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $cart_object->addToCart($user_id, $id, $_POST["cart_quantity"]);
         
     }
+    
+    if(isset($_POST["add_to_wishlist"])){
+        
+        require_once APP_DIR . "Utils/code.isLoggedIn.php";
+        $cart_object->addToWishlist1($user_id, $id, 1);
+        
+    }
+
+
 }
 
 $product_details = $product_object->getProductDetails($id);

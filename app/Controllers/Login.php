@@ -16,7 +16,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         if ($user_object->login($_POST)){
             echo "Login was successful";
             header ("location:" . BASE_URL . "templates");
-            exit;
         }else{
             echo "Incorrect username or password";
         }

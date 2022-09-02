@@ -41,6 +41,19 @@ post('/cart', 'app/Controllers/Cart.php');
 get('/checkout', 'app/Controllers/Checkout.php');
 post('/checkout', 'app/Controllers/Checkout.php');
 
+
+get('/wishlist', 'app/Controllers/Wishlist.php');
+post('/wishlist', 'app/Controllers/Wishlist.php');
+
+
+get('/checkout/success/$payment/$id', 'app/Controllers/Checkout-success.php');
+post('/checkout/success/$payment/$id', 'app/Controllers/Checkout-success.php');
+
+
+get('/orderdetails', 'app/Controllers/Orderdetails.php');
+post('/orderdetails', 'app/Controllers/Orderdetails.php');
+
+
 // FEATURE: Admin functionality
 get('/admin/products/add', 'app/Controllers/admin/Adminproduct.php');
 post('/admin/products/add', 'app/Controllers/admin/Adminproduct.php');
@@ -61,8 +74,6 @@ post('/admin/dashboard', 'app/Controllers/admin/Admindashboard.php');
 get('/admin/discounts', 'app/Controllers/admin/Admindiscounts.php');
 post('/admin/discounts', 'app/Controllers/admin/Admindiscounts.php');
 
-get('/wishlist', 'app/Controllers/Wishlist.php');
-post('/wishlist', 'app/Controllers/Wishlist.php');
 
 
 

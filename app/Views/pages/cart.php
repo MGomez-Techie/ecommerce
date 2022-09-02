@@ -174,16 +174,17 @@
 							 							<div class="product-name">
 								 							<a href="#"><?php echo $data["product_title"]; ?></a>
 															
-															 <form action="cart" method="post">
-																<button class="btn btn-default" type="submit" name="remove_from_cart">Remove</button>
-																<input type="hidden" name="cart_id" value="<?php echo $data["cart_id"]; ?>">
-															</form>
-															 <form action="cart" method="post">
-																<button class="btn btn-default" type="submit" name="add_to_wishlist">Add to wishlist</button>
-																<input type="hidden" name="product_id" value="<?php echo $data["product_id"]; ?>">
-																<input type="hidden" name="cart_id" value="<?php echo $data["cart_id"]; ?>">
-															</form>
-
+															<div class="d-flex flex-row">
+																<form action="cart" method="post">
+																	<button class="btn btn-danger" type="submit" name="remove_from_cart">X</button>
+																	<input type="hidden" name="cart_id" value="<?php echo $data["cart_id"]; ?>">
+																</form>
+															 	<form action="cart" method="post">
+																	<button class="btn btn-default" type="submit" name="add_to_wishlist">Add to wishlist</button>
+																	<input type="hidden" name="product_id" value="<?php echo $data["product_id"]; ?>">
+																	<input type="hidden" name="cart_id" value="<?php echo $data["cart_id"]; ?>">
+																</form>
+															</div>
 
 
 

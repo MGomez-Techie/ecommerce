@@ -151,34 +151,35 @@
 	 	<section class="shopping-cart dark">
 	 		<div class="container">
 		        <div class="block-heading">
-		          <h2>Checkout</h2>
+		          <h2>Orders</h2>
 		        </div>
 		        <div class="content">
 	 				<div class="row">
-	 					<div class="col-md-12 col-lg-8">
+	 					<div class="col-md-12">
 	 						<div class="items">
 
 							
 							
 							
-							<?php foreach ($cart_details as $data) : ?>							
+							<?php foreach ($order_details as $data) : ?>							
 								<div class="product">
 				 					<div class="row">
 					 					<div class="col-md-3">
 					 						<img class="img-fluid mx-auto d-block image" src="<?php echo BASE_URL . $data["product_image1"];?>">
 					 					</div>
-					 					<div class="col-md-8">
+					 					<div class="col-md-9">
 					 						<div class="info">
 						 						<div class="row">
 							 						<div class="col-md-5 product-name">
 							 							<div class="product-name">
 								 							<a href="#"><?php echo $data["product_title"]; ?></a>
 															
-															 <form action="cart" method="post">
-																<button class="btn btn-danger" type="submit" name="remove_from_cart">X</button>
-																<input type="hidden" name="cart_id" value="<?php echo $data["cart_id"]; ?>">
-															</form>
+															
+												
+																
+															
 
+															
 
 
 
@@ -192,10 +193,14 @@
 							 						</div>
 							 						<div class="col-md-4 quantity">
 							 							<label for="quantity">Quantity:</label>
-							 							<input id="quantity" type="number" value ="<?php echo $data["cart_quantity"]; ?>" class="form-control quantity-input">
+							 							<input id="quantity" type="number" value ="<?php echo $data["order_details_quantity"]; ?>" class="form-control quantity-input">
 							 						</div>
 							 						<div class="col-md-3 price">
-							 							<span>$<?php echo $data["product_price"]; ?></span>
+							 							<span>$<?php echo Customhelper::calculateDiscountAmount(
+                											$data["product_price"],
+                											$data["discount_percent"]
+														); ?>
+														</span>
 							 						</div>
 							 					</div>
 							 				</div>
@@ -210,16 +215,6 @@
 
 
 
-				 			</div>
-			 			</div>
-			 			<div class="col-md-12 col-lg-4">
-			 				<div class="summary">
-			 					<h3>Summary</h3>
-			 					<div class="summary-item"><span class="text">Subtotal</span><span class="price">$<?php echo $cart_object->getSubtotal();?></span></div>
-			 					<div class="summary-item"><span class="text">Discount</span><span class="price">$0</span></div>
-			 					<div class="summary-item"><span class="text">Shipping</span><span class="price">$0</span></div>
-			 					<div class="summary-item"><span class="text">Total</span><span class="price">$<?php echo $cart_object->getTotal();?></span></div>
-			 					<button name="checkout" type="button" class="btn btn-primary btn-lg btn-block">Checkout</button>
 				 			</div>
 			 			</div>
 		 			</div> 

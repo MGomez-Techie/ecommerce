@@ -2,10 +2,11 @@
     <div class="row">
 
 
-        <div class="col-md-6">
+        <div class="col-md-3">
+            
             <img class="img-fluid" src="<?php echo BASE_URL . $data["product_image1"]; ?>" alt="">
         </div>
-        <div class="col-md-6">
+        <div class="col-md-9">
 
 
             <span><?php echo $data["product_category"]; ?></span>
@@ -20,7 +21,10 @@
                         </div>
                     </div>
                     <div class="col-md-10">
-                        <button name="add_to_cart" class="btn btn-primary btn-lg">Add to cart</button>
+                        <div class="d-flex flex-row">
+                            <button name="add_to_cart" class="btn btn-primary btn-lg">Add to cart</button>
+                            <button name="add_to_wishlist" class="btn btn-default"><i class = "fa fa-heart"></i></button>
+                        </div>
                     </div>
                 </div>
             </form>

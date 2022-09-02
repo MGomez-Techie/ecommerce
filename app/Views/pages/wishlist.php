@@ -151,80 +151,83 @@
 	 	<section class="shopping-cart dark">
 	 		<div class="container">
 		        <div class="block-heading">
-		          <h2>Shopping Cart</h2>
+		          <h2>Wishlist</h2>
 		        </div>
 		        <div class="content">
 	 				<div class="row">
-	 					<div class="col-md-12 col-lg-8">
+					 	<div class="col-md-12">
 	 						<div class="items">
 
 							
 							
 							
-							<?php foreach ($wishlist_details as $data) : ?>							
-								<div class="product">
-				 					<div class="row">
-					 					<div class="col-md-3">
-					 						<img class="img-fluid mx-auto d-block image" src="<?php echo BASE_URL . $data["product_image1"];?>">
-					 					</div>
-					 					<div class="col-md-8">
-					 						<div class="info">
-						 						<div class="row">
-							 						<div class="col-md-5 product-name">
-							 							<div class="product-name">
-								 							<a href="#"><?php echo $data["product_title"]; ?></a>
-															
-															
-															 
+								<?php foreach ($wishlist_details as $data) : ?>							
+									<div class="product">
+										<div class="row">
+											<div class="col-md-1">
+												<img class="img-fluid mx-auto d-block image" src="<?php echo BASE_URL . $data["product_image1"];?>">
+											</div>
+											<div class="col-md-9">
+												<div class="info">
+													<div class="row">
+														<div class="col-md-5 product-name">
+															<div class="product-name">
+																<a href="#"><?php echo $data["product_title"]; ?></a>
+																
+																
+																<div class="d-flex flex-row">
 
-															<div class="d-flex">
-																<div>
-																	 <form action="wishlist" method="post">
-																		<button class="btn btn-default" type="submit" name="remove_from_wishlist">Remove</button>
-																		<input type="hidden" name="wishlist_id" value="<?php echo $data["wishlist_id"]; ?>">
-																		<input type="hidden" name="product_id" value="<?php echo $data["product_id"]; ?>">
-																	</form>
+															
+																	<div>
+																		<form action="wishlist" method="post">
+																			<button class="btn btn-danger" type="submit" name="remove_from_wishlist">X</button>
+																			<input type="hidden" name="wishlist_id" value="<?php echo $data["wishlist_id"]; ?>">
+																			<input type="hidden" name="product_id" value="<?php echo $data["product_id"]; ?>">
+																		</form>
+																	</div>
+																	<div>
+																		<form action="wishlist" method="post">
+																			<button class="btn btn-default" type="submit" name="add_to_cart">Add to Cart</button>
+																			<input type="hidden" name="wishlist_id" value="<?php echo $data["wishlist_id"]; ?>">
+																			<input type="hidden" name="product_id" value="<?php echo $data["product_id"]; ?>">
+																		</form>
+																	</div>
+
+
 																</div>
 
+																	
+																
 
-																<div>
-																	<form action="wishlist" method="post">
-																		<button class="btn btn-default" type="submit" name="add_to_cart">Add to Cart</button>
-																		<input type="hidden" name="wishlist_id" value="<?php echo $data["wishlist_id"]; ?>">
-																		<input type="hidden" name="product_id" value="<?php echo $data["product_id"]; ?>">
-																	</form>
-																</div>
+																
+
+
+
+
+																<!-- <div class="product-info">
+																	<div>Display: <span class="value">5 inch</span></div>
+																	<div>RAM: <span class="value">4GB</span></div>
+																	<div>Memory: <span class="value">32GB</span></div>
+																</div> -->
 															</div>
-
-															
-
-
-
-
-								 							<!-- <div class="product-info">
-									 							<div>Display: <span class="value">5 inch</span></div>
-									 							<div>RAM: <span class="value">4GB</span></div>
-									 							<div>Memory: <span class="value">32GB</span></div>
-									 						</div> -->
-									 					</div>
-							 						</div>
-							 						<div class="col-md-4 quantity">
-							 							<label for="quantity">Quantity:</label>
-							 							<input id="quantity" type="number" value ="<?php echo $data["wishlist_quantity"]; ?>" class="form-control quantity-input">
-							 						</div>
-							 						<div class="col-md-3 price">
-							 							<span>$<?php echo Customhelper::calculateDiscountAmount(
-                											$data["product_price"],
-                											$data["discount_percent"]
-														); ?>
-														</span>
-							 						</div>
-							 					</div>
-							 				</div>
-					 					</div>
-					 				</div>
-				 				</div>
-							<?php endforeach; ?>
+														</div>
+														<div class="col-md-4 quantity">
+															<label for="quantity">Quantity:</label>
+															<input id="quantity" type="number" value ="<?php echo $data["wishlist_quantity"]; ?>" class="form-control quantity-input">
+														</div>
+														<div class="col-md-3 price">
+															<span>$<?php echo Customhelper::calculateDiscountAmount(
+																$data["product_price"],
+																$data["discount_percent"]
+															); ?>
+															</span>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								<?php endforeach; ?>
 
 
 
@@ -232,16 +235,8 @@
 
 
 
-				 			</div>
-			 			</div>
-			 			<div class="col-md-12 col-lg-4">
-			 				<div class="summary">
-			 					<h3>Summary</h3>
-			 					<div class="summary-item"><span class="text">Subtotal</span><span class="price">$<?php echo $cart_object->getSubtotal();?></span></div>
-			 					<div class="summary-item"><span class="text">Total</span><span class="price">$<?php echo $cart_object->getTotal();?></span></div>
-			 					<button type="button" class="btn btn-primary btn-lg btn-block">Checkout</button>
-				 			</div>
-			 			</div>
+							</div>
+						</div>
 		 			</div> 
 		 		</div>
 	 		</div>
