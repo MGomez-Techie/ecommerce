@@ -161,7 +161,7 @@
 							
 							
 							
-							<?php foreach ($cart_details as $data) : ?>							
+							<?php foreach ($wishlist_details as $data) : ?>							
 								<div class="product">
 				 					<div class="row">
 					 					<div class="col-md-3">
@@ -174,16 +174,29 @@
 							 							<div class="product-name">
 								 							<a href="#"><?php echo $data["product_title"]; ?></a>
 															
-															 <form action="cart" method="post">
-																<button class="btn btn-default" type="submit" name="remove_from_cart">Remove</button>
-																<input type="hidden" name="cart_id" value="<?php echo $data["cart_id"]; ?>">
-															</form>
-															 <form action="cart" method="post">
-																<button class="btn btn-default" type="submit" name="add_to_wishlist">Add to wishlist</button>
-																<input type="hidden" name="product_id" value="<?php echo $data["product_id"]; ?>">
-																<input type="hidden" name="cart_id" value="<?php echo $data["cart_id"]; ?>">
-															</form>
+															
+															 
 
+															<div class="d-flex">
+																<div>
+																	 <form action="wishlist" method="post">
+																		<button class="btn btn-default" type="submit" name="remove_from_wishlist">Remove</button>
+																		<input type="hidden" name="wishlist_id" value="<?php echo $data["wishlist_id"]; ?>">
+																		<input type="hidden" name="product_id" value="<?php echo $data["product_id"]; ?>">
+																	</form>
+																</div>
+
+
+																<div>
+																	<form action="wishlist" method="post">
+																		<button class="btn btn-default" type="submit" name="add_to_cart">Add to Cart</button>
+																		<input type="hidden" name="wishlist_id" value="<?php echo $data["wishlist_id"]; ?>">
+																		<input type="hidden" name="product_id" value="<?php echo $data["product_id"]; ?>">
+																	</form>
+																</div>
+															</div>
+
+															
 
 
 
@@ -197,7 +210,7 @@
 							 						</div>
 							 						<div class="col-md-4 quantity">
 							 							<label for="quantity">Quantity:</label>
-							 							<input id="quantity" type="number" value ="<?php echo $data["cart_quantity"]; ?>" class="form-control quantity-input">
+							 							<input id="quantity" type="number" value ="<?php echo $data["wishlist_quantity"]; ?>" class="form-control quantity-input">
 							 						</div>
 							 						<div class="col-md-3 price">
 							 							<span>$<?php echo Customhelper::calculateDiscountAmount(

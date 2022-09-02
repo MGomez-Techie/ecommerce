@@ -175,9 +175,24 @@ body {
 	<div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
 		<div class="navbar-nav">
 			<a href="<?php echo BASE_URL . "templates"; ?>" class="nav-item nav-link">Home</a>
-			<a href="<?php echo BASE_URL . "cart"; ?>" class="nav-item nav-link">Cart</a>			
+			<a href="<?php echo BASE_URL . "cart"; ?>" class="nav-item nav-link">Cart</a>	
+			
+			
+		<?php if(isset($_SESSION["current_user"]["user_id"])): ?>
+
+			<a href="<?php echo BASE_URL . "logout"; ?>" class="nav-item nav-link active">LOGOUT</a>
+			<a href="<?php echo BASE_URL . "wishlist"; ?>" class="nav-item nav-link ">Wishlist</a>
+
+		<?php else: ?>
+
 			<a href="<?php echo BASE_URL . "login"; ?>" class="nav-item nav-link active">Login</a>
+			
 			<a href="<?php echo BASE_URL . "registration"; ?>" class="nav-item nav-link">Register</a>
+
+		<?php endif; ?>
+
+
+			
         </div>
 		<form action="templates" method="get" class="navbar-form form-inline">
 			<div class="input-group search-box">								

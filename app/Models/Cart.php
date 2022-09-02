@@ -94,4 +94,63 @@ class Cart
     public function calculateTotal(){
         $this->total = $this->subtotal;
     }
+
+    public function getWishlistDetails($user_id){
+        $sql = "SELECT * FROM wishlist, products, discounts 
+        WHERE wishlist.product_id = products.product_id 
+        AND products.discount_id = discounts.discount_id
+        AND wishlist.user_id = ?";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$user_id]);
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    public function isInWishList($user_id, $product_id){
+        $sql = "SELECT * FROM wishlist WHERE product_id = ? AND user_id = ? LIMIT 1";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$product_id, $user_id]);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        if($result){
+            return true;
+        }else{
+            false;
+        }
+
+
+    }
+
+    public function addToWishlist($user_id, $cart_id, $wishlist_quantity = 1){
+        $data = [
+            "user_id" => $user_id,
+            "cart_id" => $cart_id,
+            "wishlist_quantity" => $wishlist_quantity,
+        ];
+
+        $sql = "INSERT INTO `wishlist`
+        (`wishlist_id`,
+        `user_id`,
+        `product_id`,
+        `wishlist_created`,
+        `wishlist_quantity`)
+        VALUES
+        (
+        NULL,
+        :user_id,
+        (SELECT product_id FROM cart WHERE cart_id = :cart_id),
+        current_timestamp(),
+        :wishlist_quantity
+        );
+        
+        ";
+
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute($data);
+    }
+
+    public function removeFromWishlist($wishlist_id, $user_id){
+        $sql = "DELETE FROM wishlist WHERE wishlist_id = ? AND user_id = ?";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$wishlist_id, $user_id]);
+    }
 }

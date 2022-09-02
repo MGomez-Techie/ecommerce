@@ -17,7 +17,8 @@ $product_object = new Adminproduct($db_object);
 $url = (empty($id)) ? "admin/products/add" : "admin/products/edit/$id";
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-    if(isset($_POST["add_product"]) && !empty($id)){ 
+    if(isset($_POST["add_product"]) && empty($id)){ 
+        echo "You are trying to insert a product";
         $images = [
             new Customimage("product_image1", 1),
             new Customimage("product_image2", 0),
@@ -27,7 +28,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         if(startValidations($images)){
             
             if (startUpload($images)){
-                $product_object->addProduct($images, $_POST);
+                $product_object->addProduct($_POST, $images);
             }else{
                 echo "Error trying to upload file";
             }
@@ -47,7 +48,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         if(startValidations($images)){
             
             if (startUpload($images)){
-                $product_object->updateProduct($id, $images, $_POST);
+                $product_object->updateProduct($id,$_POST, $images);
             }else{
                 echo "Error trying to upload file";
             }

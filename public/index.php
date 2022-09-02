@@ -61,6 +61,9 @@ post('/admin/dashboard', 'app/Controllers/admin/Admindashboard.php');
 get('/admin/discounts', 'app/Controllers/admin/Admindiscounts.php');
 post('/admin/discounts', 'app/Controllers/admin/Admindiscounts.php');
 
+get('/wishlist', 'app/Controllers/Wishlist.php');
+post('/wishlist', 'app/Controllers/Wishlist.php');
+
 
 
 
