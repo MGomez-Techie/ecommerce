@@ -42,6 +42,10 @@ get('/checkout', 'app/Controllers/Checkout.php');
 post('/checkout', 'app/Controllers/Checkout.php');
 
 
+get('/checkout/stripe', 'app/Controllers/Checkout-stripe.php');
+post('/checkout/stripe', 'app/Controllers/Checkout-stripe.php');
+
+
 get('/wishlist', 'app/Controllers/Wishlist.php');
 post('/wishlist', 'app/Controllers/Wishlist.php');
 

@@ -29,7 +29,12 @@ switch ($payment) {
         break;
     
     case 'stripe':
-        # code...
+        $payment_object = new Stripehelper();
+        $checkout_order = $payment_object->getCheckoutOrder($id);
+        Debugger::debug($checkout_order);
+        $completed = $payment_object->isCheckoutCompleted($checkout_order);
+        $data = $payment_object->getPaymentDetails($checkout_order);
+        Debugger::debug($data);
         break;
     
     default:

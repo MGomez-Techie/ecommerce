@@ -12,11 +12,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if(isset($_POST["checkout"])){
         
         require_once APP_DIR . "Utils/code.isLoggedIn.php";
-        $order_details = $order_object->getOrderDetails();
+        
     }
 }
    
-
+$order_details = $order_object->getOrderDetails();
 
 
 foreach ($order_details as $data) {
