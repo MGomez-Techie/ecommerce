@@ -158,7 +158,12 @@
 	 					<div class="col-md-12 col-lg-8">
 	 						<div class="items">
 
-							
+							<nav aria-label="breadcrumb">
+            					<ol class="breadcrumb">
+                					<li class="breadcrumb-item"><a href="<?php echo BASE_URL . "templates"; ?>">Store</a></li>
+                					<li class="breadcrumb-item active" aria-current="page">Cart</li>
+            					</ol>
+        					</nav>
 							
 							
 							<?php foreach ($cart_details as $data) : ?>							
@@ -176,7 +181,7 @@
 															
 															<div class="d-flex flex-row">
 																<form action="cart" method="post">
-																	<button class="btn btn-danger" type="submit" name="remove_from_cart">X</button>
+																	<button class="btn btn-danger" type="submit" name="remove_from_cart">&times;</button>
 																	<input type="hidden" name="cart_id" value="<?php echo $data["cart_id"]; ?>">
 																</form>
 															 	<form action="cart" method="post">
@@ -227,7 +232,7 @@
 			 					<h3>Summary</h3>
 			 					<div class="summary-item"><span class="text">Subtotal</span><span class="price">$<?php echo $cart_object->getSubtotal();?></span></div>
 			 					<div class="summary-item"><span class="text">Total</span><span class="price">$<?php echo $cart_object->getTotal();?></span></div>
-			 					<button name="checkout" type="button" class="btn btn-primary btn-lg btn-block">Checkout</button>
+			 					<button type="button" class="btn btn-primary btn-lg btn-block">Proceed to Checkout</button>
 				 			</div>
 			 			</div>
 		 			</div> 

@@ -180,7 +180,7 @@
 															
 																	<div>
 																		<form action="wishlist" method="post">
-																			<button class="btn btn-danger" type="submit" name="remove_from_wishlist">X</button>
+																			<button class="btn btn-danger" type="submit" name="remove_from_wishlist">&times;</button>
 																			<input type="hidden" name="wishlist_id" value="<?php echo $data["wishlist_id"]; ?>">
 																			<input type="hidden" name="product_id" value="<?php echo $data["product_id"]; ?>">
 																		</form>

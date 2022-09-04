@@ -24,9 +24,9 @@
                         Return to Store
                     </a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="<?php echo BASE_URL . "admin/dashboard"; ?>">Dashboard</a>
-                </li>
+                </li> -->
                 <li>
                     <a href="<?php echo BASE_URL . "admin/products/view"; ?>">View Products</a>
                 </li>
@@ -37,13 +37,7 @@
                     <a href="<?php echo BASE_URL . "admin/discounts"; ?>">Discounts</a>
                 </li>
                 <li>
-                    <a href="#">Users</a>
-                </li>
-                <li>
-                    <a href="#">Services</a>
-                </li>
-                <li>
-                    <a href="#">Contact</a>
+                    <a href="<?php echo BASE_URL . "admin/users"; ?>">Users</a>
                 </li>
             </ul>
         </div>

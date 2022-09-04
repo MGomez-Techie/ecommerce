@@ -34,5 +34,6 @@ if ($_SERVER["REQUEST_METHOD"] == "GET"){
 
 // load views
 require_once APP_DIR . "Views/header.php";
+require_once APP_DIR . "Views/includes/alerts.php";
 require_once APP_DIR . "Views/pages/store.php";
 require_once APP_DIR . "Views/footer.php";

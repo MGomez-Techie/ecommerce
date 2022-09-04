@@ -22,7 +22,7 @@ class Cart
         $sql = "SELECT * 
         FROM cart, products, discounts
         WHERE cart.product_id = products.product_id 
-        AND products.product_id = discounts.discount_id
+        AND products.discount_id = discounts.discount_id
         AND cart.user_id = ? 
         AND cart.cart_status = 'cart'";
         $stmt = $this->pdo->prepare($sql);

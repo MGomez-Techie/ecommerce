@@ -79,6 +79,10 @@ get('/admin/discounts', 'app/Controllers/admin/Admindiscounts.php');
 post('/admin/discounts', 'app/Controllers/admin/Admindiscounts.php');
 
 
+get('/admin/users', 'app/Controllers/admin/Adminusers.php');
+post('/admin/users', 'app/Controllers/admin/Adminusers.php');
+
+
 
 
 

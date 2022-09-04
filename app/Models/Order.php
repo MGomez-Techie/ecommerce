@@ -113,15 +113,4 @@ class Order
         }
     }
 
-    public function getOrderDetails(){
-        $sql = "SELECT * FROM orders, order_details
-        WHERE order_details.order_id = orders.order_id
-        AND order.user_id = ?
-        ";
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->execute();
-        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return $result;
-    }
-    
 }

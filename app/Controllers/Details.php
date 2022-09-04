@@ -19,14 +19,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         require_once APP_DIR . "Utils/code.isLoggedIn.php";
         $cart_object->addToCart($user_id, $id, $_POST["cart_quantity"]);
-        
+        $_SESSION["message"] = "Product added to cart";
+        header ("location:" . BASE_URL . "cart");
+        exit;
     }
     
     if(isset($_POST["add_to_wishlist"])){
         
         require_once APP_DIR . "Utils/code.isLoggedIn.php";
         $cart_object->addToWishlist1($user_id, $id, 1);
-        
+        $_SESSION["message"] = "Product added to wishlist";
     }
 
 
@@ -39,5 +41,6 @@ foreach ($product_details as $data) {
 
 // load views
 require_once APP_DIR . "Views/header1.php";
+require_once APP_DIR . "Views/includes/alerts.php";
 require_once APP_DIR . "Views/pages/details.php";
 require_once APP_DIR . "Views/footer1.php";

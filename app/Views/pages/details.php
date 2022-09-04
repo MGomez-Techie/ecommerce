@@ -1,13 +1,12 @@
 <div class="container">
     <div class="row">
 
-
+        
         <div class="col-md-3">
             
             <img class="img-fluid" src="<?php echo BASE_URL . $data["product_image1"]; ?>" alt="">
         </div>
         <div class="col-md-9">
-
 
             <span><?php echo $data["product_category"]; ?></span>
             <h3><?php echo $data["product_title"]; ?></h3>

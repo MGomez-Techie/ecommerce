@@ -174,7 +174,7 @@ body {
 	<!-- Collection of nav links, forms, and other content for toggling -->
 	<div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
 		<div class="navbar-nav">
-			<a href="<?php echo BASE_URL . "templates"; ?>" class="nav-item nav-link">Home</a>
+			<a href="<?php echo BASE_URL . "templates"; ?>" class="nav-item nav-link">Store</a>
 			<a href="<?php echo BASE_URL . "cart"; ?>" class="nav-item nav-link">Cart</a>	
 			
 			
@@ -182,8 +182,7 @@ body {
 
 			<a href="<?php echo BASE_URL . "logout"; ?>" class="nav-item nav-link active">LogOut</a>
 			<a href="<?php echo BASE_URL . "wishlist"; ?>" class="nav-item nav-link ">Wishlist</a>
-			<a href="<?php echo BASE_URL . "checkout"; ?>" class="nav-item nav-link ">Checkout</a>
-			<a href="<?php echo BASE_URL . "orderdetails"; ?>" class="nav-item nav-link ">Orders</a>
+			<a href="<?php echo BASE_URL . ""; ?>" class="nav-item nav-link ">Order History</a>
 			
 		<?php else: ?>
 
