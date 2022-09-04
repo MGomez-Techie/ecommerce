@@ -10,6 +10,7 @@ require_once APP_DIR . "Models/Order.php";
 require_once APP_DIR . "Models/Stripehelper.php";
 require_once APP_DIR . "Utils/code.isLoggedIn.php";
 require_once APP_DIR . "Utils/Customhelper.php";
+require_once APP_DIR . "Utils/Point.php";
 
 // create objects
 $db_object = new Database();

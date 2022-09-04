@@ -158,7 +158,13 @@
 	 					<div class="col-md-12 col-lg-8">
 	 						<div class="items">
 
-							
+							<nav aria-label="breadcrumb">
+            					<ol class="breadcrumb">
+                					<li class="breadcrumb-item"><a href="<?php echo BASE_URL . "templates"; ?>">Store</a></li>
+                					<li class="breadcrumb-item"><a href="<?php echo BASE_URL . "cart"; ?>">Cart</a></li>
+                					<li class="breadcrumb-item active" aria-current="page">Checkout</li>
+            					</ol>
+        					</nav>
 							
 							
 							<?php foreach ($cart_details as $data) : ?>							
@@ -219,7 +225,9 @@
 			 					<div class="summary-item"><span class="text">Discount</span><span class="price">$0</span></div>
 			 					<div class="summary-item"><span class="text">Shipping</span><span class="price">$0</span></div>
 			 					<div class="summary-item"><span class="text">Total</span><span class="price">$<?php echo $cart_object->getTotal();?></span></div>
-									<?php require_once APP_DIR . "Views/includes/stripe-ui.php"; ?>
+								
+								<?php require_once APP_DIR . "Views/includes/checkout-points.php"; ?>
+								<?php require_once APP_DIR . "Views/includes/stripe-ui.php"; ?>
 				 			</div>
 			 			</div>
 		 			</div> 

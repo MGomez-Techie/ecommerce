@@ -58,9 +58,21 @@ $order_id = $order_object->insertOrder(
     $data["payment_id"],
 );
 
+
+// Set points info
+$points_used = $cart_object->getPointsUsed();
+$points_gained = $cart_object->getPointsGained();
+$points_discount_amount = $cart_object->getPointsDiscountAmount();
+$total_points = ($cart_object->getUserTotalPoints() + $points_gained) - $points_used;
+
 // Insert order details
 $order_object->insertOrderDetails($cart_details, $order_id);
 
 // Update items in stock
 
 // Send user to thanks page
+
+// Update User Points
+$user_object->updateTotalPoints($user_id, $total_points);
+$user_object->setTotalPoints($new_points);
+$cart_object->resetSessions();

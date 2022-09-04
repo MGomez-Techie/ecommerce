@@ -11,6 +11,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION["message"] = "Product removed from cart";
     }
     
+    if(isset($_POST["proceed"])){ 
+        header ("location:" . BASE_URL . "checkout");
+    }
+    
 
 
     

@@ -15,6 +15,7 @@ class Cart
     {
         if (!isset($pdo->pdo)) return null;
         $this->pdo = $pdo->pdo;
+        $this->setSessions();
     }
   
 
@@ -92,7 +93,22 @@ class Cart
         return $this->total;
     }
     public function calculateTotal(){
-        $this->total = $this->subtotal;
+        $total = $this->subtotal;
+        $amount_to_add = [0, 0, 0, 0];
+        $amount_to_subtract = [$_SESSION["checkout"]["points_discount_amount"], 0, 0];
+        $total = $this->calculateAmountOff($total, $amount_to_subtract);
+        $total = $this->calculateAmountAdded($total, $amount_to_add);
+        $this->total = $total;
+    }
+
+    public function calculateAmountOff($total, $array_of_values){
+        $amount = array_sum($array_of_values);
+        return $total - $amount;
+    }
+
+    public function calculateAmountAdded($total, $array_of_values){
+        $amount = array_sum($array_of_values);
+        return $total + $amount;
     }
 
     public function getWishlistDetails($user_id){
@@ -180,5 +196,77 @@ class Cart
         $sql = "DELETE FROM wishlist WHERE wishlist_id = ? AND user_id = ?";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([$wishlist_id, $user_id]);
+    }
+
+    public function setSessions(){
+        $names = [
+            "points_used",
+            "points_gained",
+            "points_discount_amount"
+        ];
+
+        foreach ($names as $key) {
+            if(empty($_SESSION["checkout"][$key])){
+                $_SESSION["checkout"][$key] = 0;
+            }
+        }
+    }
+
+    public function resetSessions(){
+        unset($_SESSION["checkout"]);
+    }
+
+
+    // POINTS
+
+    public function setPointsUsed($points_used){
+
+        //convert points to money
+        $points_discount_amount = POINT::getDiscountAmount($points_used);
+
+        //check if discount isnt greater than subtotal
+        if ($points_discount_amount >= $this->subtotal){
+            $this->resetPoints();
+            $_SESSION["message"] = "Cannot redeem points";
+            return;
+        }
+
+        //if user has enough points
+        if ($_SESSION["current_user"]["total_points"] >= $points_used){
+            //can exchange
+            $_SESSION["checkout"]["points_used"] = $points_used;
+            $_SESSION["checkout"]["points_discount_amount"] = POINT::getDiscountAmount($points_used);
+            $_SESSION["message"] = "Discount applied! Keep shopping to gain more points";
+        }else{
+            //cannot exchange
+            $this->resetPoints();
+            $_SESSION["message"] = "Not enough points";
+            return;
+        }
+    }
+
+    public function resetPoints(){
+        $_SESSION["checkout"]["points_used"] = 0;
+        $_SESSION["checkout"]["points_discount_amount"] = 0;
+    }
+
+    public function setUserTotalPoints(){
+
+    }
+    
+    public function getUserTotalPoints(){
+        return $_SESSION["current_user"]["total_points"];        
+    }
+
+    public function getPointsGained(){
+        return POINT::getPoints($this->total);
+    }
+
+    public function getPointsUsed(){
+        return $_SESSION["checkout"]["points_used"];
+    }
+
+    public function getPointsDiscountAmount(){
+        return $_SESSION["checkout"]["points_discount_amount"];
     }
 }
