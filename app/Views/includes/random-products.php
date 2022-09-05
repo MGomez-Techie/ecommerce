@@ -10,7 +10,7 @@
 .product-grid .product-image{ position: relative; }
 .product-grid .product-image a.image{ display: block; }
 .product-grid .product-image img{
-    width: 100%;
+    width: auto;
     height: auto;
 }
 .product-image .pic-1{
@@ -137,32 +137,21 @@
 </style>
 
 <style>
-    .store-banner {
-        background: #2193b0;
-        /* fallback for old browsers */
-        background: -webkit-linear-gradient(to bottom, #ffffff, #5C6AC4);
-        /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(to bottom, #ffffff, #5C6AC4);
-        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        /* font-family: 'Manrope', sans-serif; */
-
-    }
+    /* Rounded border */
+hr.rounded {
+  border-top: 8px solid #bbb;
+  border-radius: 5px;
+}
 </style>
 
-
-
-<div class="container my-5">
-    <div class="container store-banner mb-5 p-5">
-        <h1>We have the latest Phones at affordable prices</h1>
-        <p>Get the latest Phones in one convient place</p>
-    </div>
-</div>
-
 <div class="container">
-    <?php require_once APP_DIR . "Views/includes/store-filter.php"; ?>
+    <hr class="rounded">
+    <h3>Other Products People Buy!</h3>
+    <br>
     <div class="row">
-
-        <?php foreach ($product_details as $data): 
+        <?php 
+        $product_details = $product_object->getRandomProducts();
+        foreach ($product_details as $data): 
             $link = BASE_URL . "details/{$data["product_id"]}";
             ?>
             
@@ -170,8 +159,8 @@
                 <div class="product-grid">
                 <div class="product-image">
                     <a href="<?php echo $link;?>" class="image">
-                        <img class="pic-1" src="<?php echo BASE_URL . $data["product_image1"];?>" style="width:251px;height:516px;">
-                        <img class="pic-2" src="<?php echo BASE_URL . $data["product_image2"];?>" style="width:251px;height:516px;">
+                        <img class="pic-1" src="<?php echo BASE_URL . $data["product_image1"];?>" style="width:125px;height:258px;">
+                        <img class="pic-2" src="<?php echo BASE_URL . $data["product_image2"];?>" style="width:125px;height:258px;">
                     </a>   
                 </div>
                     <div class="product-content">

@@ -5,7 +5,7 @@ function startValidations($images){
     foreach ($images as $image) {
         if(!isSelected($image->input_name)){
             if($image->required){
-                echo "One image is required";
+                $_SESSION["message"] = "One image is required";
                 return false;
             }
             continue;
@@ -70,30 +70,30 @@ function getFilename($filename, $upload_folder){
     if(isset($_POST["submit"])) {
         $check = getimagesize($_FILES[$filename]["tmp_name"]);
         if($check !== false) {
-            echo "File is an image - " . $check["mime"] . ".";
+            $_SESSION["message"] = "File is an image - " . $check["mime"] . ".";
             $uploadOk = 1;
         } else {
-        echo "File is not an image.";
+            $_SESSION["message"] = "File is not an image.";
         $uploadOk = 0;
         }
     }
 
     // Check if file already exists
     if (file_exists($target_file)) {
-        echo "Sorry, file already exists.";
+        $_SESSION["message"] = "Sorry, file already exists.";
         $uploadOk = 0;
     }
     
     // Check file size
     if ($_FILES[$filename]["size"] > 500000) {
-        echo "Sorry, your file is too large.";
+        $_SESSION["message"] = "Sorry, your file is too large.";
         $uploadOk = 0;
     }
   
     // Allow certain file formats
     if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
     && $imageFileType != "gif" ) {
-        echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+        $_SESSION["message"] = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
         $uploadOk = 0;
     }
     
@@ -110,9 +110,9 @@ function upload($full_path, $old_name, $new_name){
     $full_name = $full_path . $new_name;
 
     if (move_uploaded_file($_FILES[$old_name]["tmp_name"], $full_name)) {
-        echo "The file upload" . $full_name;
+        $_SESSION["message"] = "The file upload" . $full_name;
     } else {
-        echo "Sorry, there was an error uploading your file.";
+        $_SESSION["message"] = "Sorry, there was an error uploading your file.";
         return false;
     }
     

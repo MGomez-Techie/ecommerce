@@ -43,4 +43,5 @@ foreach ($product_details as $data) {
 require_once APP_DIR . "Views/header1.php";
 require_once APP_DIR . "Views/includes/alerts.php";
 require_once APP_DIR . "Views/pages/details.php";
+require_once APP_DIR . "Views/includes/random-products.php";
 require_once APP_DIR . "Views/footer1.php";

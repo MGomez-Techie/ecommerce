@@ -61,7 +61,7 @@ class Product
                     $sql .= " AND product_price >= $value";
                     break;
                 case 'max_price':
-                    $sql .= " AND product_price >= $value";
+                    $sql .= " AND product_price <= $value";
                     break;
                 case 'order':
                     $sql .= $this->orderBy($value);
@@ -101,5 +101,12 @@ class Product
         }
     }
 
-
+    public function getRandomProducts(){
+        $sql = "SELECT * FROM products ORDER BY RAND() LIMIT 4";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+    
 }

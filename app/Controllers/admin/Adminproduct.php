@@ -18,7 +18,7 @@ $url = (empty($id)) ? "admin/products/add" : "admin/products/edit/$id";
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(isset($_POST["add_product"]) && empty($id)){ 
-        echo "You are trying to insert a product";
+        $_SESSION["message"] = "Product was inserted";
         $images = [
             new Customimage("product_image1", 1),
             new Customimage("product_image2", 0),
@@ -30,11 +30,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             if (startUpload($images)){
                 $product_object->addProduct($_POST, $images);
             }else{
-                echo "Error trying to upload file";
+                $_SESSION["message"] = "Error trying to upload file";
             }
 
         }else{
-            echo "Error trying to validate files";
+            $_SESSION["message"] = "Error trying to validate files";
         }  
     }
 
@@ -50,11 +50,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             if (startUpload($images)){
                 $product_object->updateProduct($id,$_POST, $images);
             }else{
-                echo "Error trying to upload file";
+                $_SESSION["message"] = "Error trying to upload file";
             }
 
         }else{
-            echo "Error trying to validate files";
+            $_SESSION["message"] = "Error trying to validate files";
         }  
     }
 }
@@ -82,5 +82,6 @@ $product_category = (!empty($data["product_category"])) ? $data["product_categor
 
 // load views
 require_once APP_DIR . "Views/adminheader.php";
+require_once APP_DIR . "Views/includes/alerts.php";
 require_once APP_DIR . "Views/pages/admin/manage-product.php";
 require_once APP_DIR . "Views/adminfooter.php";
