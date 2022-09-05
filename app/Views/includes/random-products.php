@@ -146,7 +146,7 @@ hr.rounded {
 
 <div class="container">
     <hr class="rounded">
-    <h3>Other Products People Buy!</h3>
+    <h3 class="text-center">Other Products People Buy!</h3>
     <br>
     <div class="row">
         <?php 
