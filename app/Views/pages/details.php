@@ -2,11 +2,26 @@
     <div class="row">
 
         
-        <div class="col-md-3">
-            
-            <img class="img-fluid" src="<?php echo BASE_URL . $data["product_image1"]; ?>" alt="">
+        <div class="col-md-6">
+
+        <div class="row">
+            <div class="col-md-2">
+            <img class="img-fluid mb-2" src="<?php echo BASE_URL . $data["product_image1"]; ?>" alt="" style="height: 100px">
+            <img class="img-fluid mb-2" src="<?php echo BASE_URL . $data["product_image2"]; ?>" alt="" style="height: 100px">
+            <img class="img-fluid mb-2" src="<?php echo BASE_URL . $data["product_image3"]; ?>" alt="" style="height: 100px">
+            <img class="img-fluid mb-2" src="<?php echo BASE_URL . $data["product_image4"]; ?>" alt="" style="height: 100px">
+            </div>
+            <div class="col-md-10">
+                <div class="p-5">
+                     <img class="img-fluid" src="<?php echo BASE_URL . $data["product_image1"]; ?>" alt="">
+                </div>
+               
+            </div>
         </div>
-        <div class="col-md-9">
+            
+            
+        </div>
+        <div class="col-md-6">
 
             <span><?php echo $data["product_category"]; ?></span>
             <h3><?php echo $data["product_title"]; ?></h3>

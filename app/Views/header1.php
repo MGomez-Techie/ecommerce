@@ -190,6 +190,12 @@ body {
 			<a href="<?php echo BASE_URL . "registration"; ?>" class="nav-item nav-link">Register</a>
 
 		<?php endif; ?>
+		
+		<?php if(isset($_SESSION["current_user"]["user_type"])&& $_SESSION["current_user"]["user_type"] == "admin"): ?>
+
+			<a href="<?php echo BASE_URL . "admin/products/view"; ?>" class="nav-item nav-link">Admin Dashboard</a>
+
+		<?php endif; ?>
 
 
 			

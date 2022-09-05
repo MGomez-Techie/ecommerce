@@ -7,6 +7,8 @@ require_once APP_DIR . "Models/Product.php";
 require_once APP_DIR . "Models/admin/Adminproduct.php";
 require_once APP_DIR . "Utils/Customimage.php";
 require_once APP_DIR . "Utils/Uploadfile.php";
+require_once APP_DIR . "Utils/code.isUserAdmin.php";
+
 
 
 // create objects

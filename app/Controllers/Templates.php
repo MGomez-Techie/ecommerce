@@ -34,6 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET"){
 
 // load views
 require_once APP_DIR . "Views/header1.php";
+require_once APP_DIR . "Views/includes/alerts.php";
 
 if(empty($product_details)){
     require_once APP_DIR . "Views/includes/store-no-results.php";

@@ -38,7 +38,7 @@
                                 <h6 class="font-weight-bold my-2"><?php echo $data["order_details_price"];?></h6>
                             </div>
                         </div>
-                        <img src="<?php echo $data["product_image1"];?>" alt="Generic placeholder image" width="200"  class="ml-lg-5 order-1 order-lg-2">
+                        <img src="<?php echo BASE_URL . $data["product_image1"];?>" alt="Generic placeholder image" style="width:200px;height:300px"  class="ml-lg-5 order-1 order-lg-2">
                     </div> <!-- End -->
                 </li> <!-- End -->
 

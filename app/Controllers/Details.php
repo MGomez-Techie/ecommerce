@@ -24,11 +24,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
     
-    if(isset($_POST["add_to_wishlist"])){
+    if(isset($_POST["add_to_wishlist"])){ 
         
         require_once APP_DIR . "Utils/code.isLoggedIn.php";
-        $cart_object->addToWishlist1($user_id, $id, 1);
-        $_SESSION["message"] = "Product added to wishlist";
+        if(!$cart_object->isInWishList($user_id, $id)){
+            $cart_object->addToWishlist1($user_id, $id, 1);
+            $_SESSION["message"] = "Product added to wishlist";
+        
+        }else{
+            $_SESSION["message"] = "Already in wishlist";
+        }
+        // $cart_object->removeFromCart($_POST["cart_id"], $user_id);
     }
 
 
