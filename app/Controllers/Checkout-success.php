@@ -8,7 +8,7 @@ $completed = false;
 // Get cart details
 $cart_details = $cart_object->getCartDetails($user_id);
 if(empty($cart_details)){
-    echo "Cart is empty";
+    //echo "Cart is empty";
     exit;
 }
 
@@ -31,10 +31,10 @@ switch ($payment) {
     case 'stripe':
         $payment_object = new Stripehelper();
         $checkout_order = $payment_object->getCheckoutOrder($id);
-        Debugger::debug($checkout_order);
+        //Debugger::debug($checkout_order);
         $completed = $payment_object->isCheckoutCompleted($checkout_order);
         $data = $payment_object->getPaymentDetails($checkout_order);
-        Debugger::debug($data);
+        //Debugger::debug($data);
         break;
     
     default:
@@ -44,7 +44,7 @@ switch ($payment) {
 
 // Check if payment was completed
 if(!$completed || empty($data)){
-    $_SESSION["message"] = "Payment process not completed";
+    //$_SESSION["message"] = "Payment process not completed";
     exit;
 }
 

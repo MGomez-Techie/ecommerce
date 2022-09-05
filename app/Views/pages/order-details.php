@@ -35,7 +35,7 @@
                             <h5 class="mt-0 font-weight-bold mb-2"><?php echo $data["product_title"];?></h5>
                             <p class="font-italic text-muted mb-0 small"><?php echo $data["product_category"];?></p>
                             <div class="d-flex align-items-center justify-content-between mt-1">
-                                <h6 class="font-weight-bold my-2"><?php echo $data["order_details_price"];?></h6>
+                                <h6 class="font-weight-bold my-2">$<?php echo $data["order_details_price"];?></h6>
                             </div>
                         </div>
                         <img src="<?php echo BASE_URL . $data["product_image1"];?>" alt="Generic placeholder image" style="width:200px;height:300px"  class="ml-lg-5 order-1 order-lg-2">
@@ -50,8 +50,8 @@
                     <div class="media-body order-2 order-lg-1">
                         <h1 class="text-center">Summary</h1>
                         <h4>Order # <span class="float-right"><?php echo $data["order_id"]; ?></span></h4>
-                        <h4>Subtotal <span class="float-right"><?php echo $data["subtotal"]; ?></span></h4>
-                        <h4>Total <span class="float-right"><?php echo $data["total"]; ?></span></h4>
+                        <h4>Subtotal <span class="float-right">$<?php echo $data["subtotal"]; ?></span></h4>
+                        <h4>Total <span class="float-right">$<?php echo $data["total"]; ?></span></h4>
                     </div>
                 </div>
             </li>
