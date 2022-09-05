@@ -14,8 +14,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(isset($_POST["login"])){
         
         if ($user_object->login($_POST)){
+
             $_SESSION["message"] = "Login was successful";
-            header ("location:" . BASE_URL . "templates");
+            header ("location: " . BASE_URL . "templates");
+            exit;
         }else{
             $_SESSION["message"] = "Incorrect email or password";
         }

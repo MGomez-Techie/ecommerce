@@ -140,16 +140,18 @@
     .store-banner {
         background: #2193b0;
         /* fallback for old browsers */
-        background: -webkit-linear-gradient(to right, #6dd5ed, #2193b0);
+        background: -webkit-linear-gradient(to bottom, #ffffff, #5C6AC4);
         /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(to right, #6dd5ed, #2193b0);
+        background: linear-gradient(to bottom, #ffffff, #5C6AC4);
         /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
         /* font-family: 'Manrope', sans-serif; */
 
     }
 </style>
 
-<div class="container my-3">
+
+
+<div class="container my-5">
     <div class="container store-banner mb-5 p-5">
         <h1>We have the latest Phones at affordable prices</h1>
         <p>Get the latest Phones in one convient place</p>

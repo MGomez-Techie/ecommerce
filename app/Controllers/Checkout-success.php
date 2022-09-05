@@ -44,7 +44,7 @@ switch ($payment) {
 
 // Check if payment was completed
 if(!$completed || empty($data)){
-    echo "payment process not completed";
+    $_SESSION["message"] = "Payment process not completed";
     exit;
 }
 
@@ -71,8 +71,10 @@ $order_object->insertOrderDetails($cart_details, $order_id);
 // Update items in stock
 
 // Send user to thanks page
+header("location: " . BASE_URL . "thanks");
+exit;
 
 // Update User Points
 $user_object->updateTotalPoints($user_id, $total_points);
-$user_object->setTotalPoints($new_points);
+$user_object->setTotalPoints($points_gained);
 $cart_object->resetSessions();

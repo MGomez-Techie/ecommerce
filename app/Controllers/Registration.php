@@ -15,6 +15,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $user_object->register($_POST);
         $_SESSION["message"] = "Registration was successful. Please login";
         header ("location:" . BASE_URL . "login");
+        exit;
     }
 }
 

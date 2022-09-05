@@ -180,16 +180,7 @@
 							 							<div class="product-name">
 								 							<a href="#"><?php echo $data["product_title"]; ?></a>
 															
-															 <form action="cart" method="post">
-																<button class="btn btn-danger" type="submit" name="remove_from_cart">&times;</button>
-																<input type="hidden" name="cart_id" value="<?php echo $data["cart_id"]; ?>">
-															</form>
-
-
-
-
-
-								 							<!-- <div class="product-info">
+														<!-- <div class="product-info">
 									 							<div>Display: <span class="value">5 inch</span></div>
 									 							<div>RAM: <span class="value">4GB</span></div>
 									 							<div>Memory: <span class="value">32GB</span></div>

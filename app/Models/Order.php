@@ -113,4 +113,26 @@ class Order
         }
     }
 
+    public function getUserOrders($user_id){
+        $sql = "SELECT * FROM orders WHERE user_id = ?";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$user_id]);
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    public function getUserOrderDetails($user_id, $order_id){
+        $sql = "SELECT * 
+        FROM orders, order_details, products
+        WHERE orders.order_id = order_details.order_id
+        AND order_details.product_id = products.product_id
+        AND orders.user_id = ?
+        AND orders.order_id = ?";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$user_id, $order_id]);
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    
 }

@@ -182,7 +182,7 @@ body {
 
 			<a href="<?php echo BASE_URL . "logout"; ?>" class="nav-item nav-link active">LogOut</a>
 			<a href="<?php echo BASE_URL . "wishlist"; ?>" class="nav-item nav-link ">Wishlist</a>
-			<a href="<?php echo BASE_URL . ""; ?>" class="nav-item nav-link ">Order History</a>
+			<a href="<?php echo BASE_URL . "orders"; ?>" class="nav-item nav-link ">Order History</a>
 			
 		<?php else: ?>
 

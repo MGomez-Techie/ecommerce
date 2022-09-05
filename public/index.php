@@ -54,8 +54,16 @@ get('/checkout/success/$payment/$id', 'app/Controllers/Checkout-success.php');
 post('/checkout/success/$payment/$id', 'app/Controllers/Checkout-success.php');
 
 
-get('/orderdetails', 'app/Controllers/Orderdetails.php');
-post('/orderdetails', 'app/Controllers/Orderdetails.php');
+get('/orders', 'app/Controllers/Orders.php');
+post('/orders', 'app/Controllers/Orders.php');
+
+
+get('/orders/details/$id', 'app/Controllers/Order-details.php');
+post('/orders/details/$id', 'app/Controllers/Order-details.php');
+
+
+get('/thanks', 'app/Controllers/Thanks.php');
+post('/thanks', 'app/Controllers/Thanks.php');
 
 
 // FEATURE: Admin functionality
