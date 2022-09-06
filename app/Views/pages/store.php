@@ -154,7 +154,7 @@
 <div class="container my-5">
     <div class="container store-banner mb-5 p-5">
         <h1>We have the latest Phones at affordable prices</h1>
-        <p>Get the latest Phones in one convient place</p>
+        <p>Get the latest Samsung & Apple Phones in one convient place</p>
     </div>
 </div>
 

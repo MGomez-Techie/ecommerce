@@ -13,7 +13,7 @@
             </div>
             <div class="col-md-10">
                 <div class="p-5">
-                     <img class="img-fluid" src="<?php echo BASE_URL . $data["product_image1"]; ?>" alt="">
+                     <img class="img-fluid" src="<?php echo BASE_URL . $data["product_image1"]; ?>" alt="" style="height: 700px">
                 </div>
                
             </div>
