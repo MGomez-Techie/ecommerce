@@ -70,8 +70,8 @@ class User
         $stmt->execute([$total_points, $user_id]);
     }
 
-    public function setTotalPoints($new_points){
-        $_SESSION["current_user"]["total_points"] = $new_points;
+    public function setTotalPoints($points_gained){
+        $_SESSION["current_user"]["total_points"] = $points_gained;
     }
 
 

@@ -75,6 +75,7 @@ header("location: " . BASE_URL . "thanks");
 exit;
 
 // Update User Points
+
 $user_object->updateTotalPoints($user_id, $total_points);
 $user_object->setTotalPoints($points_gained);
 $cart_object->resetSessions();
