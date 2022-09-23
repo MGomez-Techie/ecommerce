@@ -70,12 +70,13 @@ $order_object->insertOrderDetails($cart_details, $order_id);
 
 // Update items in stock
 
-// Send user to thanks page
-header("location: " . BASE_URL . "thanks");
-exit;
 
 // Update User Points
 
 $user_object->updateTotalPoints($user_id, $total_points);
-$user_object->setTotalPoints($points_gained);
+$user_object->setTotalPoints($total_points);
 $cart_object->resetSessions();
+
+// Send user to thanks page
+header("location: " . BASE_URL . "thanks");
+exit;

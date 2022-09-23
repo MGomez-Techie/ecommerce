@@ -221,8 +221,12 @@ class Cart
 
     public function setPointsUsed($points_used){
 
+        echo "Points to be used " . $points_used . '<br>';
+
         //convert points to money
         $points_discount_amount = POINT::getDiscountAmount($points_used);
+
+        echo "Points discount amoutn is " . $points_discount_amount . "<br>";
 
         //check if discount isnt greater than subtotal
         if ($points_discount_amount >= $this->subtotal){
@@ -236,6 +240,10 @@ class Cart
             //can exchange
             $_SESSION["checkout"]["points_used"] = $points_used;
             $_SESSION["checkout"]["points_discount_amount"] = POINT::getDiscountAmount($points_used);
+            echo "Total is  " . $this->getTotal();
+            echo "Points gained is  " . $this->getPointsGained();
+            // exit;
+            $_SESSION["checkout"]["points_gained"] = $this->getPointsGained();
             $_SESSION["message"] = "Discount applied! Keep shopping to gain more points";
         }else{
             //cannot exchange
@@ -247,6 +255,7 @@ class Cart
 
     public function resetPoints(){
         $_SESSION["checkout"]["points_used"] = 0;
+        $_SESSION["checkout"]["points_gained"] = 0;
         $_SESSION["checkout"]["points_discount_amount"] = 0;
     }
 
